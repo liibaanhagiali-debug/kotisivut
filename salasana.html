@@ -1,0 +1,146 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>salasanan valikointi</title>
+</head>
+<body>
+   <h1>mun salasana</h1> 
+
+  <a href="index.html">takaisin etusivulle</a>
+  <br>
+  <br>
+  <input type="password" spellcheck="false" id="salasana">
+  <button id="vaihto">näytä salasana</button>
+  <ul>
+    <li id="li-pituus">pituus 5-10</li>
+    <li id="li-sisältää-yksi-iso-merkki">vähintään yksi iso merkki</li>
+    <li id="yksi-numero">yksi-numero</li>
+    <li id="erikoismerkki">ainakin-yksi-(@!"#)</li> 
+  </ul>
+
+<script>
+
+    const input =document.getElementById("salasana");
+    const button = document.getElementById("vaihto");
+    const liPituus = document.getElementById('li-pituus');
+    const liIsomerkki= document.getElementById("li-sisältää-yksi-iso-merkki");
+    const liNumero= document.getElementById("yksi-numero");
+    const liErikoismerkki= document.getElementById("erikoismerkki");
+
+
+
+    function OnButtonClick () {
+        if (input.type === "password"){
+            input.type= "text";
+            button.innerText= "piilota salasana"
+        }
+        else{
+            input.type = "password";
+            button.innerText= "näytä salasana";
+        
+        }
+    }
+
+
+    function onInput() {
+            /** @type {string}*/
+            const password = input.value;
+        
+            if (password.length < 5 || password.length >10){
+                liPituus.style.color = "red";
+            } 
+             else {
+                liPituus.style.color = "green";
+            }
+        
+                // tarkista onko salasanassa iso kirjaimia
+                if (/[A-Z]/.test(password)) {
+                    liIsomerkki.style.color ="green" 
+            } 
+            else {
+                    liIsomerkki.style.color ="red"
+                    
+                }
+            if (/[0-9]/.test(password)) {
+                liNumero.style.color ="green";
+            } 
+            else {
+                liNumero.style.color ="red";
+
+                }
+            if (/[@!"#]/.test(password)) {
+                liErikoismerkki.color ="green";
+            } 
+            else {
+                liErikoismerkki.style.color ="red";
+            
+            }
+
+         }
+         function onInput2() {
+  
+          /** @type {string}*/
+            const password = input.value;
+        
+            // pituus
+            liPituus.style.color ="red"
+            if(5 <= password.length && password.length <=10){  
+
+                  liPituus.style.color ="green";
+                
+
+            }
+           
+            // iso kirjain
+            liIsomerkki.style.color ="red"
+            for (let i = 0; i < password.length; i++){
+                const code = password.charCodeAt(i);
+
+                if (65 <= code && code <= 90){
+                
+                  liIsomerkki.style.color ="green";
+                  break;
+                }
+
+            }
+             // yksi numero
+            liNumero.style.color ="red"
+            for (let i = 0; i < password.length; i++){
+                const code = password.charCodeAt(i);
+
+                if (48 <= code && code <= 57){
+                //
+                  liNumero.style.color ="green";
+                  break;
+
+                }
+            }
+
+            const erikoismerkkit = [  ];
+            liErikoismerkki.style.color="red"
+            
+
+
+            const luvut = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+        }
+
+
+         
+        
+          
+                    
+         
+         
+
+        
+    
+
+    button.onclick = OnButtonClick;
+    input.oninput = onInput2;
+
+    onInput();
+
+</script>
+</body>
+</html>
