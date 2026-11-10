@@ -34,12 +34,26 @@ function arvioBMI(bmi){
 
 function selvitäBMIrajat (pituus){
     //tulos alinpainon, normaalipaino ja ylipainon rajat
-    let alinpainon = 0;
-    let ylipaino = 0; 
- for (let paino = 0; paino < 1000; paino++){
     
- }
+    let alinpaino = 0;
+    let ylipaino = 0; 
+    for (let paino = 0; ; paino++){
+        let bmi = laskeBMI(paino, pituus)
+        let arvio = arvioBMI(bmi)
+        if (arvio === "alipaino"){
+            alinpaino = paino
+        }
+        else if (arvio === "ylipaino"){
+            ylipaino = paino
+            break;
+        }
 
-      console.log(pituus, alinpainon, ylipaino);
+    }
+
+
+      console.log(pituus, alinpaino, ylipaino);
 }
 selvitäBMIrajat(1.85);
+selvitäBMIrajat(1.20);
+selvitäBMIrajat(2.5);
+

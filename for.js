@@ -57,7 +57,8 @@ for (let lenkki = 1; lenkki <= 5; lenkki++) {
             console.log(i);
     }
     
- } for(let i=1; i<=30; i++){
+} 
+ for(let i=1; i<=30; i++){
 
     if (i % 3 === 0 && i % 5 === 0){
         console.log("Fizzbuzz");
@@ -73,7 +74,19 @@ for (let lenkki = 1; lenkki <= 5; lenkki++) {
         console.log(i);
 
     }
-       
+        
+  let parillistenSumma, parittomienSumma = 0;
 
+  for(let i=1; i<=20; i++;){
+    if (i++ = 0)
+        console.log i 
+  }
+
+
+    
         
 }
+
+ let Kaloreitakuluu = 10;
+
+ for(let i=0; i<=15 i++)
