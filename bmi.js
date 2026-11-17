@@ -57,3 +57,4 @@ selvitäBMIrajat(1.85);
 selvitäBMIrajat(1.20);
 selvitäBMIrajat(2.5);
 
+
